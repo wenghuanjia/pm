@@ -1,6 +1,6 @@
 <template>
     <div class="table">
-        <el-table :data="table" style="width: 100%" :border="true">
+        <el-table :data="table" style="width: 100%" :border="true" :span-method="objectSpanMethod">
             <el-table-column label="企业名称" align="center">
                 <template slot-scope="scope">
                     {{ scope.row.company_name }}
@@ -13,7 +13,7 @@
             </el-table-column>
             <el-table-column label="年度/审批" align="center">
                 <template slot-scope="scope">
-                    {{ scope.row.year }}
+                    {{ scope.row.more }}
                 </template>
             </el-table-column>
             <el-table-column label="业务员" align="center">
@@ -345,6 +345,57 @@ export default {
             this.deriveFlag = status == 4 && this.user.name == '审核员' ? true : false;
             this.$router.push({query: {"pro_id": this.activeId}});
             this.dialogTableVisible = true; // 查看模态框显示
+        },
+        // 实现跨行
+        objectSpanMethod({ row, column, rowIndex, columnIndex }) {
+            if (columnIndex === 0) {
+                if (rowIndex == 0 && row.row == 0) {
+                    return {
+                        rowspan: 1,
+                        colspan: 1
+                    }
+                }
+                // if (rowIndex == 1 && row.row == 0) {
+                //     return {
+                //         rowspan: 1,
+                //         colspan: 1
+                //     }
+                // }
+                // if (rowIndex == 2 && row.row == 0) {
+                //     return {
+                //         rowspan: 1,
+                //         colspan: 1
+                //     }
+                // }
+                // if (rowIndex == 3 && row.row == 0) {
+                //     return {
+                //         rowspan: 1,
+                //         colspan: 1
+                //     }
+                // }
+                // if (rowIndex == 4 && row.row == 0) {
+                //     return {
+                //         rowspan: 1,
+                //         colspan: 1
+                //     }
+                // }
+                // if (rowIndex == 2 && row.row == 0) {
+                //     return {
+                //         rowspan: 5,
+                //         colspan: 1
+                //     }
+                // }
+                // if (rowIndex == 6 && row.row == 0) {
+                //     return {
+                //         rowspan: 1,
+                //         colspan: 1
+                //     }
+                // }
+                return {
+                    rowspan: row.row,
+                    colspan: 1
+                }
+            }
         }
     },
     // 监听
@@ -355,6 +406,9 @@ export default {
                 this.reload();
             }
         }
+    },
+    mounted () {
+        console.log(this.table)
     }
 }
 </script>

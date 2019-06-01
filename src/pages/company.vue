@@ -1,7 +1,9 @@
 <template>
     <div class="main">
         <v-header crumbs_title="企业管理" search="true" pmenterprise="true" ref="vheader" @searchList="setList"></v-header>
+        <!-- 中间表格内容区域 -->
         <v-table :table="table[currentPage3 - 1]" @getpmList="getList"></v-table>
+        <!-- 分页功能 -->
         <div class="block">
             <el-pagination
             :current-page.sync="currentPage3"

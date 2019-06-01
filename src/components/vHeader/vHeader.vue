@@ -30,10 +30,18 @@
           </div>
         </div>
     </section>
+
     <!-- 新增项目 -->
     <el-dialog title="请选择" width="30%" center :visible.sync="auditstate">
-      <div class="lists" v-for="(item, index) in tabs" :key="index" @click="addpm(item.id)">{{ item.name }}</div>
+      <!-- <div class="lists" v-for="(item, index) in tabs" :key="index" @click="addpm(item.id)">{{ item.name }}</div> -->
+      <el-checkbox-group v-model="typeArr">
+        <el-checkbox class="lists" v-for="(item, index) in tabs" :label="item.id" :key="index">{{ item.name }}</el-checkbox>
+      </el-checkbox-group>
+      <div class="right">
+        <el-button type="primary" @click="addpm()">下一步</el-button>
+      </div>
     </el-dialog>
+
     <!-- 新增项目输入名称 -->
     <el-dialog title="新增项目" :visible.sync="dialogFormVisible">
       <el-form :model="form">
@@ -41,6 +49,17 @@
           <el-input v-model="form.name" autocomplete="off"></el-input>
         </el-form-item>
       </el-form>
+      <div>
+        <span class="choose">请选择</span>
+        <el-select v-model="year" placeholder="请选择">
+          <el-option
+            v-for="item in options"
+            :key="item"
+            :label="item"
+            :value="item">
+          </el-option>
+        </el-select>
+      </div>
       <div slot="footer" class="dialog-footer">
         <el-button @click="cancenl">取 消</el-button>
         <el-button type="primary" @click="confirm">确 定</el-button>
@@ -52,13 +71,14 @@
 <script>
 import { getStore, removeStore } from "common/common";
 import { mapState, mapMutations } from "vuex";
-import { pmtype, pmList, addProjectName } from "service/getData"
+import { pmtype, pmList, addProjectName, addProName } from "service/getData"
 
 export default {
   name: 'vHeader',
   props: ['crumbs_title', 'search', 'pmenterprise', 'getaddpm'],
   data () {
     return {
+      typeArr: [],
       auditstate: false, // 新增项目模态框
       dialogFormVisible: false, // 新增项目输入名称
       searchMsg: '', // 搜索框
@@ -67,8 +87,10 @@ export default {
       tabs: null,
       smallTitle: '',
       form: {
-          name: '',
+          name: ''
       },
+      year: '',
+      options: []
     }
   },
   created () {
@@ -83,7 +105,7 @@ export default {
     } else if (url.indexOf("/staff") != -1) {
       this.active = '/staff';
     }
-    
+    this.handleYear();
   },
   async mounted () {
     // 获取新建项目列表
@@ -130,10 +152,12 @@ export default {
       this.$emit("whileList", id)
     },
     // 新增项目
-    addpm (id) {
+    addpm () {
+      if (this.typeArr.length == 0) return this.$message('至少选择一项');
+      // console.log(this.typeArr)
       this.auditstate = false;
       this.dialogFormVisible = true;
-      this.project_type_id = id;
+      // this.project_type_id = id;
     },
     // 取消输入名称
     cancenl () {
@@ -143,11 +167,30 @@ export default {
     // 确定输入名称
     confirm () {
       this.dialogFormVisible = false;
-      addProjectName({name: this.form.name, project_type_id: this.project_type_id}).then(res => {
-        console.log(res)
-        this.SET_STATE_FLAG(1);
-        this.$router.push({ path: '/addpm', query: {id: this.project_type_id, pro_id: res.pro_id}});
+      if (this.form.name == '' || this.year == '') return this.$message('请输入企业名称')
+      this.typeArr.forEach(item => {
+        console.log(item)
+        console.log(this.year)
+        addProName({name: this.form.name, project_type_id: item, year: this.year}).then(res => {
+          this.SET_STATE_FLAG(1);
+          this.$router.push({path: '/company/t0'})
+          this.$message({
+            message: '添加成功',
+            type: 'success'
+          });
+          // this.$router.push({ path: '/addpm', query: {id: this.project_type_id, pro_id: res.pro_id}});
+        })
       })
+      this.typeArr = [];
+    },
+    handleYear() {
+      // 生成年份选择器
+      var myDate= new Date(); 
+      var startYear=myDate.getFullYear()-50;//起始年份 
+      var endYear=myDate.getFullYear()+50;//结束年份
+      for (let i = startYear; i <= endYear; i++) {
+        this.options = [].concat(this.options, i)
+      }
     },
     // 搜索
     searchBtn () {
@@ -183,11 +226,40 @@ export default {
     }
   }
   .lists {
-    text-align: center;
+    // margin-left: 20px;
+    width: 100%;
+    // text-align: center;
     line-height: 30px;
     &:hover {
       background: #E2E2E2;
       cursor: pointer;
     }
+  }
+  .el-checkbox+.el-checkbox {
+    margin-left: 0;
+  }
+  .right {
+    text-align: right;
+  }
+  .el-select-dropdown .el-popper {
+    min-width: 217px;
+    transform-origin: center top 0px;
+    z-index: 2025;
+    position: fixed;
+    top: 258px !important;
+    left: 420px;
+  }
+  .choose {
+    width: 120px;
+    font-weight: bold;
+    display: inline-block;
+    text-align: right;
+    float: left;
+    font-size: 14px;
+    color: #606266;
+    line-height: 40px;
+    padding: 0 12px 0 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
   }
 </style>

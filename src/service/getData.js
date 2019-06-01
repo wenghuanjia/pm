@@ -59,4 +59,5 @@ export const index = (data) => axios('/home/Word/index', data);
 // 1-6表名
 export const getVariable = (data) => axios('/home/index/getVariable', data);
 
-
+// 提交新添加的项目
+export const addProName = (data) => axios('/resource/Tables/addProjects', data);
