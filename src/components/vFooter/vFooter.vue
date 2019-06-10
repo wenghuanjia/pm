@@ -36,7 +36,6 @@ export default {
                 ICP: "18134819号-2",
                 technology: "广东联高技术推广服务有限公司",
                 copyright: "广东联高技术推广服务有限公司",
-                
             }
         }
     }
@@ -46,7 +45,8 @@ export default {
 <style scoped lang="less">
 @import "../../style/mixin.less";
     .footer {
-        position: absolute;
+        // position: absolute;
+        position: fixed;
         left: 0;
         bottom: 0;
         .wh(100%, auto);

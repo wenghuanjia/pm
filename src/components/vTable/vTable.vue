@@ -125,11 +125,19 @@
         <el-dialog title="审核状态" width="50%" center :visible.sync="auditstate">
             <div style="height: 300px;width: 300px; margin: 0 auto;">
                 <el-steps direction="vertical" :active="status">
-                    <el-step title="填写报告书"></el-step>
+                    <!-- <el-step title="填写报告书"></el-step>
                     <el-step title="县区主管审核" description="德庆县科学技术局"></el-step>
                     <el-step title="地市科技局审核" description="肇庆市科学及数据"></el-step>
                     <el-step title="受理纸质材料" description="（科技厅受理窗口）"></el-step>
-                    <el-step title="已受理纸质材料"></el-step>
+                    <el-step title="已受理纸质材料"></el-step> -->
+
+                    <el-step title="申请中"></el-step>
+                    <el-step title="分配中"></el-step>
+                    <el-step title="修改中"></el-step>
+                    <el-step title="审核中"></el-step>
+                    <el-step title="已完成"></el-step>
+                    <!-- <el-step title="已完成" v-if="!(status == 5)"></el-step>
+                    <el-step title="审核未通过" v-else></el-step> -->
                 </el-steps>
             </div>
         </el-dialog>
@@ -142,7 +150,7 @@ import { getStore } from "common/common"
 import { mapState, mapMutations } from "vuex"
 
 export default {
-    props: ['table'],
+    props: ['table','currentPage3'],
     inject: ['reload'],
     data () {
         return {
@@ -153,9 +161,11 @@ export default {
             activeName: 't0',
             activeId: null, // id
             setFlag: false, // 是否修改
-            status: 1, // 进度条状态 
+            status: 1, // 进度条状态
             deriveFlag: false, // 导出
-            showarr: [] // 显示表格
+            showarr: [], // 显示表格
+            company: [],
+            i: 0
         }
     },
     created () {
@@ -231,6 +241,7 @@ export default {
             } else {
                 this.status = status;
             }
+            // this.status = status;
             this.auditstate = true; // 模态框显示
         },
         // 修改
@@ -348,49 +359,26 @@ export default {
         },
         // 实现跨行
         objectSpanMethod({ row, column, rowIndex, columnIndex }) {
-            if (columnIndex === 0) {
+            if (columnIndex == 0) {
+                if (this.currentPage3 != 1) {
+                    for (let i = 0; i < this.table.length; i++) {
+                        if (!this.table.row) break;
+                        if ((i+1) > this.table.length) {
+                            break;
+                        } else if (this.table[i].row == this.table[i+1].row && this.table[i].row == 0 && this.table[i+1].row == 0) {
+                            this.table[i].row = this.table[i].row + 2;
+                            console.log(this.table[i].row)
+                        } else if (this.table[i].row != this.table[i+1].row) {
+                            break;
+                        }
+                    }
+                }
                 if (rowIndex == 0 && row.row == 0) {
                     return {
                         rowspan: 1,
                         colspan: 1
                     }
                 }
-                // if (rowIndex == 1 && row.row == 0) {
-                //     return {
-                //         rowspan: 1,
-                //         colspan: 1
-                //     }
-                // }
-                // if (rowIndex == 2 && row.row == 0) {
-                //     return {
-                //         rowspan: 1,
-                //         colspan: 1
-                //     }
-                // }
-                // if (rowIndex == 3 && row.row == 0) {
-                //     return {
-                //         rowspan: 1,
-                //         colspan: 1
-                //     }
-                // }
-                // if (rowIndex == 4 && row.row == 0) {
-                //     return {
-                //         rowspan: 1,
-                //         colspan: 1
-                //     }
-                // }
-                // if (rowIndex == 2 && row.row == 0) {
-                //     return {
-                //         rowspan: 5,
-                //         colspan: 1
-                //     }
-                // }
-                // if (rowIndex == 6 && row.row == 0) {
-                //     return {
-                //         rowspan: 1,
-                //         colspan: 1
-                //     }
-                // }
                 return {
                     rowspan: row.row,
                     colspan: 1
@@ -406,9 +394,6 @@ export default {
                 this.reload();
             }
         }
-    },
-    mounted () {
-        console.log(this.table)
     }
 }
 </script>
