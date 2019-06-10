@@ -360,25 +360,6 @@ export default {
         // 实现跨行
         objectSpanMethod({ row, column, rowIndex, columnIndex }) {
             if (columnIndex == 0) {
-                if (this.currentPage3 != 1) {
-                    for (let i = 0; i < this.table.length; i++) {
-                        if (!this.table.row) break;
-                        if ((i+1) > this.table.length) {
-                            break;
-                        } else if (this.table[i].row == this.table[i+1].row && this.table[i].row == 0 && this.table[i+1].row == 0) {
-                            this.table[i].row = this.table[i].row + 2;
-                            console.log(this.table[i].row)
-                        } else if (this.table[i].row != this.table[i+1].row) {
-                            break;
-                        }
-                    }
-                }
-                if (rowIndex == 0 && row.row == 0) {
-                    return {
-                        rowspan: 1,
-                        colspan: 1
-                    }
-                }
                 return {
                     rowspan: row.row,
                     colspan: 1
