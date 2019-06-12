@@ -7,14 +7,14 @@
         <div class="exit fr" @click="goLogin">退出</div>
       </section>
     </div>
-    <el-menu :default-active="active" class="el-menu-demo"  mode="horizontal" @select="handleSelect" background-color="#287DD4" text-color="#fff" active-text-color="#fff">
-      <el-menu-item  index="/index">首页</el-menu-item>
-      <el-menu-item   index="/company">企业管理</el-menu-item>
+    <el-menu :default-active="active" class="el-menu-demo" mode="horizontal" @select="handleSelect" background-color="#287DD4" text-color="#fff" active-text-color="#fff">
+      <el-menu-item index="/index"><i class="el-icon-date el"></i><span style="vertical-align: middle;">首页</span></el-menu-item>
+      <el-menu-item index="/company"><i class="el-icon-edit-outline el"></i><span style="vertical-align: middle;">企业管理</span></el-menu-item>
       <el-submenu index="/pm">
-        <template slot="title">项目管理</template>
+        <template slot="title"><i class="el-icon-edit el"></i><span style="vertical-align: middle;">项目管理</span></template>
         <el-menu-item index="/pm" v-for="(item, index) in tabs" :key="index" @click="whileId(item.id)">{{ item.name }}</el-menu-item>
       </el-submenu>
-      <el-menu-item index="/staff">人员管理</el-menu-item>
+      <el-menu-item index="/staff"><i class="el-icon-menu el"></i><span style="vertical-align: middle;">人员管理</span></el-menu-item>
     </el-menu>
     <section class="crumbs-wrapper clear" v-if="!getaddpm">
         <div class="crumbs_title fl">
@@ -261,5 +261,8 @@ export default {
     padding: 0 12px 0 0;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
+  }
+  .el {
+    color: rgb(191, 203, 217);
   }
 </style>

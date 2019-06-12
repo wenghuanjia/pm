@@ -4,6 +4,7 @@
         <div class="lists">
             <div class="list clear" v-for="(item, index) in lists" :key="index">
                 <span class="list_num fl">{{ index + 1 }}</span>
+                <p class="fl">{{ item.company_name}}&nbsp;&nbsp;</p>
                 <p class="fl" v-if="item.status == 4">{{ item.name }}已完成</p>
                 <p class="fl" v-else-if="item.status == 1">{{ item.name }}已完成填报，请点击<router-link :to="{path: '/staff', query: {'search': item.id}}">进入分配</router-link></p>
                 <p class="fl" v-else-if="item.status == 3">{{ item.name }}已完成填报，请点击<router-link :to="{path: '/company', query: {'search': item.id}}">进入审核</router-link></p>
