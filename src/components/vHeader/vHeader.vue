@@ -14,7 +14,7 @@
         <template slot="title"><i class="el-icon-edit el"></i><span style="vertical-align: middle;">项目管理</span></template>
         <el-menu-item index="/pm" v-for="(item, index) in tabs" :key="index" @click="whileId(item.id)">{{ item.name }}</el-menu-item>
       </el-submenu>
-      <el-menu-item index="/staff"><i class="el-icon-menu el"></i><span style="vertical-align: middle;">人员管理</span></el-menu-item>
+      <el-menu-item index="/staff" v-if="userInfo.name == '管理员'"><i class="el-icon-menu el"></i><span style="vertical-align: middle;">人员管理</span></el-menu-item>
     </el-menu>
     <section class="crumbs-wrapper clear" v-if="!getaddpm">
         <div class="crumbs_title fl">
