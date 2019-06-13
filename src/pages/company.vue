@@ -42,6 +42,7 @@ export default {
         // 从首页进来
         if (search) {
             getProject({id: search}).then(res =>{
+                // console.log(res)
                 this.table = [[res]]
             })
         } else {

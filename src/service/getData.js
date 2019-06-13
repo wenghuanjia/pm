@@ -61,3 +61,6 @@ export const getVariable = (data) => axios('/home/index/getVariable', data);
 
 // 提交新添加的项目
 export const addProName = (data) => axios('/resource/Tables/addProjects', data);
+
+// 一键导出
+export const oneKeyExport = (data) => axios('/home/word/index', data);

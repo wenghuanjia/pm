@@ -1,6 +1,6 @@
 <template>
     <div class="table">
-        <el-table :data="table" style="width: 100%" :border="true" :span-method="objectSpanMethod">
+        <el-table :data="table" style="width: 100%" :border="true" :span-method="this.$route.query.search ? stringSpanMethod : objectSpanMethod">
             <el-table-column label="企业名称" align="center">
                 <template slot-scope="scope">
                     {{ scope.row.company_name }}
@@ -59,7 +59,9 @@
 
                     <!-- 审核提交 -->
                     <el-button size="mini" type="text" v-if="scope.row.status == 3 && $route.path != '/staff' && user.name == '审核员'" @click="audit(scope.row.id)">审核</el-button>
-
+                    
+                    <!-- 一键导出功能 -->
+                    <el-button size="mini" type="text" v-if="scope.row.status == 4" @click="handleExport(scope.row.id)">一键导出</el-button>
                     <!-- 删除 -->
                     <el-button size="mini" type="text" v-if="user.name == '管理员' || user.name == '超级管理员' || user.name == '业务员'" @click="deletepm(scope.row.id)">删除</el-button>
 
@@ -145,7 +147,7 @@
 </template>
 
 <script>
-import { ywsubmit, check, del } from "service/getData"
+import { ywsubmit, check, del, oneKeyExport } from "service/getData"
 import { getStore } from "common/common"
 import { mapState, mapMutations } from "vuex"
 
@@ -365,6 +367,14 @@ export default {
                     colspan: 1
                 }
             }
+        },
+        // 空函数，不做任何操作
+        stringSpanMethod() {},
+        // 一键导出功能
+        handleExport(id) {
+            oneKeyExport({pro_id: id}).then(res => {
+                window.open(res)
+            })
         }
     },
     // 监听
