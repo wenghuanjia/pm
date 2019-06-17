@@ -49,7 +49,8 @@
                     <el-button size="mini" type="text" v-if="(scope.row.status == 2 || scope.row.status == 5) && $route.path != '/staff' && user.name == '技术员'" @click="handleDelete(scope.row.id)">提交</el-button>
                     
                     <!-- 管理添加负责人 -->
-                    <el-button size="mini" type="text" v-if=" RegExp(/\/staff/).test($route.path) && scope.row.status == 1" @click="addprincipal(scope.$index, scope.row)">添加负责人</el-button>
+                    <!-- RegExp(/\/staff/).test($route.path) -->
+                    <el-button size="mini" type="text" v-if="scope.row.status == 1" @click="addprincipal(scope.$index, scope.row)">添加负责人</el-button>
                     
                     <!-- 审核批准 -->
                     <el-button size="mini" type="text" v-if="scope.row.status == 3 && $route.path != '/staff' && user.name == '审核员'" @click="setratify(scope.row.id, scope.row.status)">批注</el-button>
@@ -64,7 +65,6 @@
                     <el-button size="mini" type="text" v-if="scope.row.status == 4" @click="handleExport(scope.row.id)">一键导出</el-button>
                     <!-- 删除 -->
                     <el-button size="mini" type="text" v-if="user.name == '管理员' || user.name == '超级管理员' || user.name == '业务员'" @click="deletepm(scope.row.id)">删除</el-button>
-
                 </template>
             </el-table-column>
         </el-table>

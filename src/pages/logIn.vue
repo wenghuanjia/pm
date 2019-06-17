@@ -89,9 +89,9 @@ export default {
 <style scoped lang="less">
 .login {
   // background: url("../images/login_bgx.gif");
-  background: url('http://demo1.mycodes.net/denglu/disanfanglogin/images/bg-01.jpg') no-repeat;
-  // background-size: 100% 100%;
-  background-size: cover;
+  background: url('../images/bgimg.jpg') no-repeat;
+  background-size: 100% 100%;
+  // background-size: cover;
   height: 100%;
   min-width: 1200px;
   overflow: hidden;
