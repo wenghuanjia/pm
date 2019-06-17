@@ -186,10 +186,12 @@ export default {
     handleYear() {
       // 生成年份选择器
       var myDate= new Date(); 
-      var startYear=myDate.getFullYear()-50;//起始年份 
-      var endYear=myDate.getFullYear()+50;//结束年份
+      // var startYear=myDate.getFullYear()-50;//起始年份 
+      var startYear = 2000;
+      var endYear=myDate.getFullYear()+10;//结束年份
       for (let i = startYear; i <= endYear; i++) {
-        this.options = [].concat(this.options, i)
+        // this.options = [].concat(this.options, i)
+        this.options.unshift(i)
       }
     },
     // 搜索
