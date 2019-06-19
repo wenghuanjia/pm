@@ -19,8 +19,8 @@
                 <el-col :span="22"><div class="grid-content bg-purple">{{ data.create_time }}</div></el-col>
             </el-row>
             <el-row :gutter="20">
-                <el-col :span="2"><div class="grid-content bg-purple">状态：</div></el-col>  
-                <el-col :span="22"><div class="grid-content bg-purple active">{{ data.status }}</div></el-col>
+                <el-col :span="2"><div class="grid-content bg-purple">状态：</div></el-col>
+                <el-col :span="22"><div class="grid-content bg-purple active">{{ data.type_status }}</div></el-col>
             </el-row>
             <el-row :gutter="20">
                 <el-col :span="2"><div class="grid-content bg-purple">业务员：</div></el-col>  
