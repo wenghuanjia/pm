@@ -36,11 +36,11 @@
                 </tr>
                 <tr>
                     <td colspan="2">*主要工作经历</td>
-                    <td colspan="4"><textarea style="width: 100%;" rows="10" v-model="text5"></textarea></td>
+                    <td colspan="4"><textarea style="width: 100%;;height:200px;" rows="10" v-model="text5"></textarea></td>
                 </tr>
                 <tr>
                     <td colspan="2">*主要工作成绩</td>
-                    <td colspan="4"><textarea style="width: 100%;" rows="10" v-model="text6"></textarea></td>
+                    <td colspan="4"><textarea style="width: 100%;height:200px;" rows="10" v-model="text6"></textarea></td>
                 </tr>
             </tbody> 
             <tbody v-else>

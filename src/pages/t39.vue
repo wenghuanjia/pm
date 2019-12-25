@@ -94,19 +94,19 @@
                     <tr>
                         <td colspan="6">
                             <div>国家知识产权局官方网站上公布的摘要</div>
-                            <textarea name="" id="" style="width:100%" v-model="text12[key]['text12']"></textarea>
+                            <textarea name="" id="" style="width:100%;height:200px;" v-model="text12[key]['text12']"></textarea>
                         </td>
                     </tr>
                     <tr>
                         <td colspan="6">
                             <div>与本知识产权相关的核心关键技术先进性说明</div>
-                            <textarea name="" id="" style="width:100%" v-model="text12[key]['text13']"></textarea>
+                            <textarea name="" id="" style="width:100%;height:200px;" v-model="text12[key]['text13']"></textarea>
                         </td>
                     </tr>
                     <tr>
                         <td colspan="6">
                             <div>该知识产权与本企业主营产品（服务）核心技术的支持作用说明</div>
-                            <textarea name="" id="" style="width:100%" v-model="text12[key]['text14']"></textarea>
+                            <textarea name="" id="" style="width:100%;height:200px;" v-model="text12[key]['text14']"></textarea>
                         </td>
                     </tr>
                 </template>

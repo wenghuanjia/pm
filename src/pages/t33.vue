@@ -6,49 +6,49 @@
                     <td>
                         <div>（一）项目概述（限150字以内）</div>
                         <div>（上报人大审议内容，简要说明项目实施的主要内容和绩效目标）</div>
-                        <textarea name="" id="" style="width: 100%" rows="3" v-model="text1"></textarea>
+                        <textarea name="" id="" style="width: 100%;height:200px;" rows="3" v-model="text1"></textarea>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <div>（二）项目必要性、可行性概述（限2000字以内）</div>
                         <div>（简要描述项目申报原因及背景、前期准备工作、项目实施的必要性和可行性）</div>
-                        <textarea name="" id="" style="width: 100%" rows="3" v-model="text2"></textarea>
+                        <textarea name="" id="" style="width: 100%;height:200px;" rows="3" v-model="text2"></textarea>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <div>（三）项目立项依据（限500字以内）</div>
                         <div>（研究意义、国内外研究/技术发展现状和趋势、预期的应用前景）</div>
-                        <textarea name="" id="" style="width: 100%" rows="3" v-model="text3"></textarea>
+                        <textarea name="" id="" style="width: 100%;height:200px;" rows="3" v-model="text3"></textarea>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <div>（四）项目研究内容（限2000字以内）</div>
                         <div>（研究目标和内容、拟解决的关键技术问题、主要创新点、采用的方法、技术路线以及工艺流程、项目的协同创新机制模式）</div>
-                        <textarea name="" id="" style="width: 100%" rows="3" v-model="text4"></textarea>
+                        <textarea name="" id="" style="width: 100%;height:200px;" rows="3" v-model="text4"></textarea>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <div>（五）项目研究基础（限1000字以内）</div>
                         <div>（技术基础，研发条件，产品有效性、安全性测试/报告，功能、性能试验或仿真验证/测试报告、验证报告，项目负责人及团队简介，项目组主要成员近三年科研经历及奖励等）</div>
-                        <textarea name="" id="" style="width: 100%" rows="3" v-model="text5"></textarea>
+                        <textarea name="" id="" style="width: 100%;height:200px;" rows="3" v-model="text5"></textarea>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <div>（六）项目效益分析（限500字以内）</div>
                         <div>（项目市场分析、预期经济和社会效益分析）</div>
-                        <textarea name="" id="" style="width: 100%" rows="3" v-model="text6"></textarea>
+                        <textarea name="" id="" style="width: 100%;height:200px;" rows="3" v-model="text6"></textarea>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <div>（七）项目预期风险及规避措施（限500字以内）</div>
                         <div>（预期风险、规避措施）</div>
-                        <textarea name="" id="" style="width: 100%" rows="3" v-model="text7"></textarea>
+                        <textarea name="" id="" style="width: 100%;height:200px;" rows="3" v-model="text7"></textarea>
                     </td>
                 </tr>
             </tbody> 

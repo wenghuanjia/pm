@@ -28,7 +28,7 @@
                     <td colspan="5">项目摘要（200字以内）：</td>
                 </tr>    
                 <tr>
-                    <td colspan="5"><textarea  v-model="text7" style="width: 100%" rows="3"></textarea></td>    
+                    <td colspan="5"><textarea  v-model="text7" style="width: 100%;height:200px;" rows="3"></textarea></td>    
                 </tr> 
                 <tr>
                     <td>*关键字（用；隔开）：</td>
@@ -78,13 +78,13 @@
                         <label><input type="checkbox" v-model="check2" value="3">地市财政资金资助</label>
                         <label><input type="checkbox" v-model="check2" value="4">其它</label>
                         <label><input type="checkbox" v-model="check2" value="5">无</label>
-                        <textarea placeholder="简要说明（限制100字）" v-model="text14" id="" cols="30"></textarea>
+                        <textarea placeholder="简要说明（限制100字）" style="height:200px;" v-model="text14" id="" cols="30"></textarea>
                     </td>
                 </tr>
                 <tr>
                     <td>其它需要说明的问题（限100字）:</td>
                     <td colspan="4">
-                        <textarea name="" id="" style="width:100%" v-model="text15"></textarea>
+                        <textarea name="" id="" style="width:100%;height:200px;" v-model="text15"></textarea>
                     </td>
                 </tr>
                 <tr>

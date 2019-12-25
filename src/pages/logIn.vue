@@ -21,21 +21,22 @@
             </div>
     </div>-->
     <div class="login_m">
+      <!-- <div class="login_logo">
+        <img src="../images/banner.png" width="196" height="46" alt="">
+      </div> -->
       <div class="login_logo">
-        <!-- <img src="../images/banner.png" width="196" height="46" alt=""> -->
-      </div>
-      <div class="login_logo">
+        <img src="../images/logo.png" width="40" height="40" alt="">
         <h1 class="h1">项目管理系统</h1>
       </div>
       <div class="login_boder">
         <div class="login_padding">
           <h2>用户名</h2>
           <label>
-            <input type="text" id="username" class="txt_input txt_input2" v-model="account">
+            <input type="text" id="username" class="txt_input txt_input2" v-model="account" />
           </label>
           <h2>密码</h2>
           <label>
-            <input type="password" name="textfield2" id="userpwd" class="txt_input" v-model="pass">
+            <input type="password" name="textfield2" id="userpwd" class="txt_input" v-model="pass" />
           </label>
           <div class="rem_sub">
             <el-button type="primary" @keyup.enter="submitForm()" @click="submitForm()">登录</el-button>
@@ -44,15 +45,20 @@
       </div>
       <!--login_boder end-->
     </div>
+    <v-footer></v-footer>
   </div>
 </template>
 
 <script>
+import vFooter from "components/vFooter/vFooter";
 import { login } from "service/getData.js";
 import { setStore, getStore } from "common/common.js";
 import { mapMutations } from "vuex";
 
 export default {
+  components: {
+    vFooter
+  },
   data() {
     return {
       account: "", // 账号
@@ -89,7 +95,7 @@ export default {
 <style scoped lang="less">
 .login {
   // background: url("../images/login_bgx.gif");
-  background: url('../images/bgimg.jpg') no-repeat;
+  background: url("../images/bgimg.jpg") no-repeat;
   background-size: 100% 100%;
   // background-size: cover;
   height: 100%;
@@ -113,63 +119,73 @@ export default {
   }
 }
 .login_m {
-    width: 403px;
-    margin: 0 auto;
-    height: 375px;
+  width: 403px;
+  margin: 0 auto;
+  height: 375px;
+  // transform: translateY(50%);
+  margin-top: 98px;
+  .login_logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 25px;
+    img {
+      width: 40px;
+      height: 40px;
+    }
+    h1 {
+      margin: 0;
+      margin-left: 20px;
+    }
+  }
+  .login_boder {
     // transform: translateY(50%);
-    margin-top: 98px;
-    .login_logo {
+    background: url("../images/login_m_bg.png") no-repeat;
+    height: 302px;
+    overflow: hidden;
+    .login_padding {
+      padding: 28px 47px 20px 47px;
+      h2 {
+        color: #4f5d80;
+        text-transform: uppercase;
+        font-size: 12px;
+        font-weight: normal;
+        margin-bottom: 11px;
+      }
+      input.txt_input2 {
+        margin-bottom: 20px;
+      }
+      input.txt_input {
+        width: 295px;
+        height: 36px;
+        border: 1px solid #cad2db;
+        // background: url(../images/txt_input_bg.gif) no-repeat;
+        padding: 0 5px;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+        line-height: 36px;
+        margin-bottom: 10px;
+        font-size: 14px;
+        color: #717171;
+        font-family: Arial;
+      }
+      .rem_sub {
         text-align: center;
-        margin-bottom: 25px;
+      }
     }
-    .login_boder {
-        // transform: translateY(50%);
-        background: url('../images/login_m_bg.png') no-repeat;
-        height: 302px;
-        overflow: hidden;
-        .login_padding {
-            padding: 28px 47px 20px 47px;
-            h2 {
-                color: #4f5d80;
-                text-transform: uppercase;
-                font-size: 12px;
-                font-weight: normal;
-                margin-bottom: 11px;
-            }
-            input.txt_input2 {
-                margin-bottom: 20px;
-            }
-            input.txt_input {
-                width: 295px;
-                height: 36px;
-                border: 1px solid #cad2db;
-                // background: url(../images/txt_input_bg.gif) no-repeat;
-                padding: 0 5px;
-                -moz-border-radius: 5px;
-                -webkit-border-radius: 5px;
-                border-radius: 5px;
-                line-height: 36px;
-                margin-bottom: 10px;
-                font-size: 14px;
-                color: #717171;
-                font-family: Arial;
-            }
-            .rem_sub {
-                text-align: center;
-            }
-        }
-    }
+  }
 }
 .login_boder input.txt_input:focus {
-    transition: border linear .2s,box-shadow linear .2s;
-    -moz-transition: border linear .2s,-moz-box-shadow linear .2s;
-    -webkit-transition: border linear .2s,-webkit-box-shadow linear .2s;
-    outline: none;
-    border-color: rgba(173,173,173.75);
-    box-shadow: 0 0 8px rgba(173,173,173,.5);
-    -moz-box-shadow: 0 0 8px rgba(173,173,173,.5);
-    -webkit-box-shadow: 0 0 8px rgba(173, 173, 173, 1);
-    border: 1px solid #6192c8;
+  transition: border linear 0.2s, box-shadow linear 0.2s;
+  -moz-transition: border linear 0.2s, -moz-box-shadow linear 0.2s;
+  -webkit-transition: border linear 0.2s, -webkit-box-shadow linear 0.2s;
+  outline: none;
+  border-color: rgba(173, 173, 173.75);
+  box-shadow: 0 0 8px rgba(173, 173, 173, 0.5);
+  -moz-box-shadow: 0 0 8px rgba(173, 173, 173, 0.5);
+  -webkit-box-shadow: 0 0 8px rgba(173, 173, 173, 1);
+  border: 1px solid #6192c8;
 }
-
 </style>

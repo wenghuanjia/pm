@@ -24,15 +24,15 @@
                 </tr>
                 <tr>
                     <td>关键技术及主要技术指标（限400字）</td>
-                    <td colspan="3"><textarea name="" id="" style="width:100%" v-model="text1[key]['text7']"></textarea></td>
+                    <td colspan="3"><textarea name="" id="" style="width:100%;height:200px;" v-model="text1[key]['text7']"></textarea></td>
                 </tr>
                 <tr>
                     <td>与同类产品（服务）的竞争优势（限400字）</td>
-                    <td colspan="3"><textarea name="" id="" style="width:100%" v-model="text1[key]['text8']"></textarea></td>
+                    <td colspan="3"><textarea name="" id="" style="width:100%;height:200px;" v-model="text1[key]['text8']"></textarea></td>
                 </tr>
                 <tr>
                     <td>知识产权获得情况及其对产品（服务）在技术上发挥的支持作用（限400字）</td>
-                    <td colspan="3"><textarea name="" id="" style="width:100%" v-model="text1[key]['text9']"></textarea></td>
+                    <td colspan="3"><textarea name="" id="" style="width:100%;height:200px;" v-model="text1[key]['text9']"></textarea></td>
                 </tr>
             </tbody>
             <tbody v-else>

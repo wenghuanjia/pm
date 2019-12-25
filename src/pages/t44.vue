@@ -5,25 +5,25 @@
                 <tr>
                     <td>
                         <div>知识产权对企业竞争力的作用（限400字）</div>
-                        <textarea name="" id="" style="width:100%" v-model="text1"></textarea>
+                        <textarea name="" id="" style="width:100%;height:200px;" v-model="text1"></textarea>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <div>科技成果转化情况（限400字）</div>
-                        <textarea name="" id="" style="width:100%" v-model="text2"></textarea>
+                        <textarea name="" id="" style="width:100%;height:200px;" v-model="text2"></textarea>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <div>研究开发与技术创新组织管理情况（限400字）</div>
-                        <textarea name="" id="" style="width:100%" v-model="text3"></textarea>
+                        <textarea name="" id="" style="width:100%;height:200px;" v-model="text3"></textarea>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <div>管理与科技人员情况（限400字）</div>
-                        <textarea name="" id="" style="width:100%" v-model="text4"></textarea>
+                        <textarea name="" id="" style="width:100%;height:200px;" v-model="text4"></textarea>
                     </td>
                 </tr>
             </tbody>

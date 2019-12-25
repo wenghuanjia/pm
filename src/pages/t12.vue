@@ -45,7 +45,7 @@
                     <td colspan="7">其他政府部门、境外资金及其他资金投入情况说明：</td>
                 </tr>
                 <tr>
-                    <td colspan="7"><textarea name="" id="" style="width:100%" v-model="text14"></textarea></td>
+                    <td colspan="7"><textarea name="" id="" style="width:100%;height:200px;" v-model="text14"></textarea></td>
                 </tr>
                 <tr>
                     <td colspan="7">新增经费预算：(单位：万元)</td>

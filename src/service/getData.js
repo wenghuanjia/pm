@@ -64,3 +64,6 @@ export const addProName = (data) => axios('/resource/Tables/addProjects', data);
 
 // 一键导出
 export const oneKeyExport = (data) => axios('/home/word/index', data);
+
+// 获取友情链接
+export const reqLink = () => axios('/home/index/link')

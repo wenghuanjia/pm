@@ -134,7 +134,7 @@
                 <tr>
                     <td colspan="4">其它认定或认证情况（请说明） </td>
                     <td colspan="7">
-                        <textarea name="" id="" style="width:100%" placeholder="限100字" v-model="text24"></textarea>
+                        <textarea name="" id="" style="width:100%;height:200px;" placeholder="限100字" v-model="text24"></textarea>
                     </td>
                 </tr>
                 <tr>

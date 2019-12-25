@@ -6,7 +6,7 @@
                     <td colspan="4">1. 主要技术指标</td>
                 </tr>
                 <tr>
-                    <td colspan="4"><textarea name="" id="" style="width: 100%" rows="3" v-model="text1"></textarea></td>
+                    <td colspan="4"><textarea name="" id="" style="width: 100%;height:200px;" rows="3" v-model="text1"></textarea></td>
                 </tr>
                 <tr>
                     <td colspan="4">2. 主要技术成果</td>
@@ -137,7 +137,7 @@
                     <td colspan="4">其他成果及形式说明（创新特色、成果宣传推介措施等，限150字）：</td>
                 </tr>
                 <tr>
-                    <td colspan="4"><textarea name="" id="" style="width: 100%" rows="3" v-model="text27"></textarea></td>
+                    <td colspan="4"><textarea name="" id="" style="width: 100%;height:200px;" rows="3" v-model="text27"></textarea></td>
                 </tr>
                 <tr>
                     <td colspan="4">3. 主要经济指标及社会效益</td>
@@ -171,7 +171,7 @@
                     <td colspan="4">其他经济指标及社会效益说明（限150字）：</td>
                 </tr>
                 <tr>
-                    <td colspan="4"><textarea name="" id="" style="width: 100%" rows="3" v-model="text32"></textarea></td>
+                    <td colspan="4"><textarea name="" id="" style="width: 100%;height:200px;" rows="3" v-model="text32"></textarea></td>
                 </tr>
             </tbody> 
             <tbody v-else>

@@ -37,15 +37,15 @@
                 </tr>
                 <tr>
                     <td>目的及组织实施方式（限400字）</td>
-                    <td colspan="6"><textarea name="" id="" style="width:100%"  v-model="text1[key]['text10']"></textarea></td>
+                    <td colspan="6"><textarea name="" id="" style="width:100%;height:200px;"  v-model="text1[key]['text10']"></textarea></td>
                 </tr>
                 <tr>
                     <td>核心技术及创新点（限400字）</td>
-                    <td colspan="6"><textarea name="" id="" style="width:100%"  v-model="text1[key]['text11']"></textarea></td>
+                    <td colspan="6"><textarea name="" id="" style="width:100%;height:200px;"  v-model="text1[key]['text11']"></textarea></td>
                 </tr>
                 <tr>
                     <td>取得的阶段性成果（限400字）</td>
-                    <td colspan="6"><textarea name="" id="" style="width:100%"  v-model="text1[key]['text12']"></textarea></td>
+                    <td colspan="6"><textarea name="" id="" style="width:100%;height:200px;"  v-model="text1[key]['text12']"></textarea></td>
                 </tr>
             </tbody> 
             <tbody v-else>
